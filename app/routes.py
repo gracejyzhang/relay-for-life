@@ -2,9 +2,9 @@ from flask import render_template, flash, redirect
 from app import app, db
 from sqlalchemy import desc
 from app.models import Event, Message, User
-from app.forms import RegistrationForm, LoginForm 
+from app.forms import RegistrationForm, LoginForm, PostForm
 from flask_login import current_user, login_user, logout_user, login_required
-
+from datetime import datetime
 
 @app.route('/')
 @app.route('/events')
@@ -12,10 +12,16 @@ def events():
     events = Event.query.order_by(desc(Event.timestamp)).all()
     return render_template('events.html', events=events)
 
-@app.route('/messages')
-def messages():
+@app.route('/messages', methods=['GET', 'POST'])
+def addmessage():
+    form = PostForm()
     messages = Message.query.join(User).add_columns(User.id, User.username, Message.text, Message.timestamp).order_by(desc(Message.timestamp)).all()
-    return render_template('messages.html', messages=messages)
+    if form.validate_on_submit():
+        message = Message(text=form.content.data, timestamp=datetime.now(), user_id=current_user.id)
+        db.session.add(message)
+        db.session.commit()
+        return redirect('/messages')
+    return render_template('messages.html', messages=messages, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

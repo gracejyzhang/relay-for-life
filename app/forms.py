@@ -21,6 +21,10 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+class PostForm(FlaskForm):
+    content = StringField('Message Content', validators=[DataRequired(), Length(min = 1)])
+    submit = SubmitField('Post to Message Board')
+
 
 
 

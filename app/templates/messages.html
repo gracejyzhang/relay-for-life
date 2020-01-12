@@ -1,12 +1,22 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content %}  
         <div>
             <h2 id="messages" class="text-center" style="margin-top:1em;">Messages</h2>
         </div>
-        
+
         {% if current_user.is_authenticated %}
-        <div>
-        <button type="button" class="btn btn-outline-secondary mx-auto d-block">Add Message</button>
+        <div class="row" style="margin:1em;">
+            <div class="mx-auto">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p class="text-center">
+                {{ form.content.label }}<br>
+                {{ form.content(size=150) }}<br>
+            </p>
+
+            <p class="text-center">{{ form.submit() }}</p>
+        </form>
+        </div>
         </div>
         {% endif %}
 
