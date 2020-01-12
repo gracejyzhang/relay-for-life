@@ -1,7 +1,7 @@
 from flask import Flask
 from config import Config
 from flask_migrate import Migrate
-from app.models import d
+from app.models import db
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
