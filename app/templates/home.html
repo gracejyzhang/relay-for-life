@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
- <h1> <font color=#10A9F3> Relay for Life</font> 
 
-
-<style>
-table{
-  font-family: goergia;
-  border-collapse: collapse;
-  width:30%;
-}
-
-td, th {
-  font-size: 15px;
-  border: .5px solid #9DDEFC;
-  text-align: center;
-  padding: 6px;
-}
-
-tr:nth-child(even) {
-  background-color: #FCFF99;
-}
-</style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 
 <table>
   <tr>
@@ -45,8 +16,4 @@ tr:nth-child(even) {
   <tr>
 
 </table>
-
-
-
-  </body>
-</html>
+{% endblock %}
