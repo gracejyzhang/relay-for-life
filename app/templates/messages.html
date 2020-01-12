@@ -5,7 +5,9 @@
         </div>
         
         {% if current_user.is_authenticated %}
-        <button type="button" class="btn btn-outline-secondary">Add Message</button>
+        <div>
+        <button type="button" class="btn btn-outline-secondary mx-auto d-block">Add Message</button>
+        </div>
         {% endif %}
 
         {% for message in messages %}
