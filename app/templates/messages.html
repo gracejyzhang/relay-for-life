@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}  
+        <div>
+            <h2 id="messages" class="text-center" style="margin-top:1em;">Messages</h2>
+        </div>
+
+        {% if current_user.is_authenticated %}
+        <div class="row" style="margin:1em;">
+            <div class="mx-auto">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p class="text-center">
+                {{ form.content.label }}<br>
+                {{ form.content(size=150) }}<br>
+            </p>
+
+            <p class="text-center">{{ form.submit() }}</p>
+        </form>
+        </div>
+        </div>
+        {% endif %}
+
+        {% for message in messages %}
+        <div class="card" style="margin:1em;">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted">{{ message.username }} at {{ message.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</h6>
+              <p class="card-text">{{ message.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+{% endblock %}
