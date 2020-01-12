@@ -24,6 +24,23 @@ class LoginForm(FlaskForm):
 class PostForm(FlaskForm):
     content = StringField('Message Content', validators=[DataRequired(), Length(min = 1)])
     submit = SubmitField('Post to Message Board')
+    
+    class EventForm(FlaskForm):
+    title = StringField('Event Title', 
+                        validators=[DataRequired()])
+    
+    date = DateTimeField('Event Date', 
+                        format='%Y-%m-%d %H:%M:%S', 
+                        validators=[DataRequired()])
+
+    location = StringField('Location',
+                            validators=[DataRequired()])
+
+    description = StringField('Description of Event',
+                                validators=[DataRequired()])
+
+    submit = SubmitField('Add event to schedule')
+
 
 
 
