@@ -23,7 +23,7 @@
         {% for message in messages %}
         <div class="card" style="margin:1em;">
             <div class="card-body">
-              <h6 class="card-subtitle mb-2 text-muted">{{ message.username }} at {{ message.timestamp }}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{ message.username }} at {{ message.timestamp.strftime("%Y-%m-%d %H:%M:%S") }}</h6>
               <p class="card-text">{{ message.text }}</p>
             </div>
           </div>
