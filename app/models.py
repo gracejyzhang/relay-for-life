@@ -7,6 +7,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    admin = db.Column(db.Integer)
     messages = db.relationship('Message', backref='user', lazy=True)
 
     def __repr__(self):
