@@ -7,6 +7,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
+      th {padding-right:1.5em;}
+      table{margin-bottom: 0.5em;}
     </style>
     </head>
     <body>
@@ -29,5 +31,13 @@
         </nav>
 
         <div id="content">{% block content %}{% endblock %}</div>
+
+          <nav class="navbar fixed-bottom navbar-light bg-light">
+                  <a class="navbar-brand" href="#" color="blue">Social Media</a>
+                  <a class="nav-item nav-link" href="https://www.facebook.com">Facebook </a>
+                  <a class="nav-item nav-link" href="https://www.twitter.com">Twitter </a>
+                  <a class="nav-item nav-link" href="#">Email</a>
+          <img src="http://convio.cancer.ca/ccs/relayforlife_natl/images/Relay_for_Life_Logo.png" width="50" align="right">
+          </nav>
     </body>
 </html>
