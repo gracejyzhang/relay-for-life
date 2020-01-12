@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from app.models import User
 
@@ -24,7 +24,6 @@ class LoginForm(FlaskForm):
 class PostForm(FlaskForm):
     content = StringField('Message Content', validators=[DataRequired(), Length(min = 1)])
     submit = SubmitField('Post to Message Board')
-
 
 
 
