@@ -1,13 +1,11 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content %}  
         <div>
             <h2 id="messages" class="text-center" style="margin-top:1em;">Messages</h2>
         </div>
         
         {% if current_user.is_authenticated %}
-        <div>
-        <button type="button" class="btn btn-outline-secondary mx-auto d-block">Add Message</button>
-        </div>
+        <button type="button" class="btn btn-outline-secondary">Add Message</button>
         {% endif %}
 
         {% for message in messages %}
@@ -18,4 +16,15 @@
             </div>
           </div>
         {% endfor %}
+
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.content.label }}<br>
+                {{ form.content(size=32) }}<br>
+            </p>
+
+            <p>{{ form.submit() }}</p>
+        </form>
+
 {% endblock %}
