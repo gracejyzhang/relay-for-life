@@ -28,6 +28,11 @@ class LoginForm(FlaskForm):
 
     submit = SubmitField('Login')
 
+ class PostForm(FlaskForm):
+    content = StringField('Post Content',
+                            validators=[DataRequired(), Length(min = 1)])
+    post = SubmitField('Post to Message Board')
+
 
 
 
