@@ -29,7 +29,7 @@ class EventForm(FlaskForm):
     title = StringField('Event Title', 
                         validators=[DataRequired()])
     
-    date = DateTimeField('Event Date', 
+    date = DateTimeField('Event Time', 
                         format='%Y-%m-%d %H:%M:%S', 
                         validators=[DataRequired()])
 
